@@ -151,3 +151,14 @@ if ((isset($_GET['cmd'])) && ($_GET['cmd'] == "update")) {
         }
     }
 }
+if ((isset($_GET['cmd'])) && ($_GET['cmd'] == "SELECT")) {
+    if (isset($_GET['table'])) {
+
+
+    }
+}
+
+$sql_temp = sqlsrv_query($conn, "SELECT * FROM [Restaurant].[dbo].[Waiter]");
+while ($result_temp = sqlsrv_fetch_array($sql_temp, SQLSRV_FETCH_ASSOC)) {
+    echo "<option value ='{$result_temp['Id_waiter']}'> {$result_temp['Second_name']} {$result_temp['First_name']} {$result_temp['Last_name']} </option>";
+}
